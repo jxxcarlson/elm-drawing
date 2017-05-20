@@ -4,8 +4,15 @@ This repository is a series of experiments in making
 drawings using Elm.  Therefore it will likely change a lot.
 
 Run the code the examples folder to see
-how the modules `Geometry` and `Shapes` are used. You can use
+how the modules `Geometry`, `Shapes`, and `Iterate` are used. You can use
 the Elm reactor: clone the repository, cd into it, and run `elm-reactor`
 
 Look at the `images` folder to see the output produced by the
 code in the `examples` folder.
+
+- `composition1.elm`: "abstract art" with circles, ellipses, and rectangles
+- `composition2.elm`: A sequence of circles of decreasing size, each one tangent
+   to the preceding one.
+- `composition2b.elm`: The same as above, but using iteration of maps to produce
+   the image
+   
