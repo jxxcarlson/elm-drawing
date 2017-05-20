@@ -1,6 +1,11 @@
+![Composition 1](https://github.com/jxxcarlson/elm-drawing/blob/master/images/composition2.png?raw=true)
+
 This repository is a series of experiments in making
 drawings using Elm.  Therefore it will likely change a lot.
 
 Run the code the examples folder to see
 how the modules `Geometry` and `Shapes` are used. You can use
 the Elm reactor: clone the repository, cd into it, and run `elm-reactor`
+
+Look at the `images` folder to see the output produced by the
+code in the `examples` folder.
