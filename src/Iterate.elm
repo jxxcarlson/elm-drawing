@@ -1,4 +1,4 @@
-module Iterate exposing(..)
+module Iterate exposing(iterate, extend)
 
 {-| Module Iterate giveś an easy way to construct lists (orbits) like
 
@@ -23,10 +23,6 @@ module Iterate exposing(..)
       [16,8,4,2,1] : List number
 
 -}
-
-{-|
-
--}
 iterate : Int -> (a -> a) -> a -> a
 iterate n f a =
   if n == 0 then
@@ -43,6 +39,9 @@ iterate n f a =
     [2,1] : List number
     > extend (\n -> 2*n) foo
     [4,2,1] : List number
+
+    ALSO: `g = extend f` takes a function a -> a and gives
+    a function List a -> Lista
 
 -}
 extend : (a -> a) -> List a -> List a

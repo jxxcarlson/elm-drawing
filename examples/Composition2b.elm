@@ -8,7 +8,6 @@
 -}
 
 import Svg exposing (..)
-
 import Svg.Attributes exposing (..)
 
 import Shape exposing(..)
@@ -30,5 +29,7 @@ preamble = rect [ fill "#F00000", x "0", y "0", width "198", height "80"] [ ]
 main =
   svg
     [   version "1.1", x "0", y "0", viewBox "-10 -10 300 300" ]
-    ([rect [ fill "#F00000", x "0", y "0", width "208", height "80"] [ ]]
-    ++ circles)
+    (
+      [rect [ fill "#F00000", x "0", y "0", width "208", height "80"] [ ]]
+      ++ circles
+    )

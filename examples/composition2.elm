@@ -8,7 +8,7 @@ import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Shape exposing(..)
 
-circle1 = CircleData 35.0 40.0 31.0
+circle1 = AbstractCircle 35.0 40.0 31.0
 step = move 0.7
 
 main =
