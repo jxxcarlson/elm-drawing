@@ -10,18 +10,15 @@
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 
-import Shape exposing(..)
-import Iterate as I exposing(..)
+import Shape exposing(AbstractCircle, move, makeCircle)
+import Iterate exposing(orbit)
 
+-- Compute circles:
 -- Initial circle
 circle1 = AbstractCircle 35.0 40.0 31.0
-
---Transform: step circle is a
-step = move 0.7
-f = \c -> step c
-g = I.extend f
-
-abstractCircles =  I.iterate 7 g [circle1]
+-- Apply the function (S.move 0.8) seven times to circle1
+abstractCircles =  orbit (move 0.7) 7 circle1
+-- map the list of seven abstract circles to SVG circles
 circles = List.map (\c -> makeCircle c) abstractCircles
 
 preamble = rect [ fill "#F00000", x "0", y "0", width "198", height "80"] [ ]

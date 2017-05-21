@@ -6,7 +6,7 @@
 
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
-import Shape exposing(..)
+import Shape as S exposing(AbstractCircle, makeCircle, move)
 
 circle1 = AbstractCircle 35.0 40.0 31.0
 step = move 0.7
