@@ -1,4 +1,4 @@
-![Composition 1](https://github.com/jxxcarlson/elm-drawing/blob/master/images/composition2.png?raw=true)
+Images: https://github.com/jxxcarlson/elm-drawing/blob/master/images/composition1.png?raw=true[Composition 1], https://github.com/jxxcarlson/elm-drawing/blob/master/images/composition2.png?raw=true[Composition 2]
 
 This repository is a series of experiments in making
 drawings using Elm.  Therefore it will likely change a lot.
