@@ -1,3 +1,9 @@
+
+{-
+  A series of black disks of decreasing radius arranged with centers
+  on a horizontal line.  Background is a red rectangle.
+-}
+
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Shape exposing(..)

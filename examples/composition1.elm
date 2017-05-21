@@ -1,3 +1,10 @@
+{-
+
+  A piece of "abstract art" composed in Elm using SVG and module Geometry.
+  Run in Elm-reactor/
+
+-}
+
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Geometry as G
@@ -48,4 +55,3 @@ horizontalRectangle = rect [
    x "30", y "130",
    height "20", width "140",
    stroke "black", fill "rgba(240,0,10,0.1)"] []
-

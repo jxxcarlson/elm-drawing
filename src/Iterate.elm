@@ -1,8 +1,8 @@
 module Iterate exposing(..)
 
-{-| Module Iterator giveś an easy way to construct lists like
+{-| Module Iterate giveś an easy way to construct lists (orbits) like
 
-     [f(f(z)), (f(f(a)))]
+     [f(f(f(z))), f(f(z)), f(f(a)), f(a), a]
 
 -}
 
@@ -13,10 +13,10 @@ module Iterate exposing(..)
       > foo = [1]
       [1] : List number
 
-      > f n = 2*n
+      > f n = 2*n -- a function a -> a
       <function> : number -> number
 
-      > g = I.extend f
+      > g = I.extend f -- promote f to a function : List a -> List a
       <function> : List number -> List number
 
       > I.iterate 4 g foo
@@ -24,6 +24,9 @@ module Iterate exposing(..)
 
 -}
 
+{-|
+
+-}
 iterate : Int -> (a -> a) -> a -> a
 iterate n f a =
   if n == 0 then

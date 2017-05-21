@@ -1,9 +1,9 @@
 module Shape exposing(AbstractCircle, move, transformCircle, makeCircle)
 
-{-| Module Shape defines the  type as record containg
+{-| Module Shape defines the AbstractCircle type as record containing
 the coordinates of the center (cx, cy) and the radius.  Such
 records can be operated on mathematically, e.g. by transformCircle
-and move.
+and move, defined below.
 
 @docs AbstractCircle: a record representing a circle. An AbstractCircle
 is defined by the coordinates of its center and by its radius,
@@ -15,13 +15,9 @@ as in this example:
 In the case at hand, the transformed circle is translated by dx, dy the
 right and rescaled by the facctor k
 
-@docs move k: transform the circle so that it is tangent to the given circle.
+@docs move k: return an AbstractCircle tangent to the given circle.
 
-@docs makeCircle
-
-
-
-
+@docs makeCircle c: return an SVG circle given an AbstractCircle
 
 
 -}
@@ -29,6 +25,7 @@ right and rescaled by the facctor k
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 
+{-| An Circle is the SVG representation of a circle. -}
 type alias Circle msg = List (Svg msg) -> Svg msg
 
 {-| An Abstract circle is defined by the coordinates of its
@@ -41,15 +38,14 @@ transformCircle : Float -> Float -> Float -> AbstractCircle -> AbstractCircle
 transformCircle dx dy k circleData =
    { circleData | cx =circleData.cx + dx, cy = circleData.cy + dy, radius = k*circleData.radius }
 
-{-| move k: blah blah.
+{-| move k: Rescale a circle by a factor of k and move it to the right
+    so that it just touches the given circle.
 -}
 move : Float -> AbstractCircle -> AbstractCircle
 move k circleData =
   transformCircle ((1 + k)*circleData.radius) 0.0 k circleData
 
-{-| makeCircle: convert an AbstractCircle into one that can be rendered by SVG. -}
+{-| makeCircle: convert an AbstractCircle into a Circle. -}
 makeCircle : AbstractCircle -> Svg msg
 makeCircle circleData =
   circle [ cx (toString circleData.cx), cy (toString circleData.cy), r (toString circleData.radius) ] []
-
-type alias UpdateFunction a = (a -> a) -> List a -> List a
