@@ -10,9 +10,19 @@ the Elm reactor: clone the repository, cd into it, and run `elm-reactor`
 Look at the `images` folder to see the output produced by the
 code in the `examples` folder.
 
-- `composition1.elm`: "abstract art" with circles, ellipses, and rectangles
+- `composition1.elm`: "abstract art" with circles, ellipses, and rectangles. Uses
+   `src/Geometry`
 - `composition2.elm`: A sequence of circles of decreasing size, each one tangent
-   to the preceding one.
+   to the preceding one. Uses `src/Shape`
 - `composition2b.elm`: The same as above, but using iteration of maps to produce
-   the image
-   
+   the image. The drawing calls on the code in `src/Iterate` and `src/Shape`.
+
+Geometry:: provides utilities for translating and scaling SVG objects as
+well as chaining these transformations together.
+
+Shape:: provides (1) an AbstractCircles class that is easy to maniuplate, (2)
+a function to map AbstractCircles to SVG circles
+
+Iterate:: provides a utility for constructing the orbit of a map:
+`[a, f(a), f(f(a)), .. ]`.  In combination with various transforms, one
+can easily make drawings with repeated elements, as in `src/Composition2b.elm`

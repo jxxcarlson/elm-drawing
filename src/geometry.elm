@@ -2,9 +2,11 @@
 
 module Geometry exposing(transform, translate, scale, scaleAt)
 
-{-| module Geometry provides utilities for transforming SVG shapes:
+{-| module Geometry provides utilities for translating
+and scaling SVG shapes, as well as chaining such transformations
+together.
 
-@docs transform commandList -- construct an SVG commmand from the given list
+@docs transform commandList -- construct an SVG commmand from a given list
 of commmands, e.g., [G.translate 60.0 120.0, G.scale 1.3 2.5, G.translate -60.0 -130.0]
 
 @docs translate 3.0 -2.0 -- translate 3.0 to the right and -2.0 down
