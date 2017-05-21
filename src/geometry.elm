@@ -1,6 +1,4 @@
-
-
-module Geometry exposing(transform, translate, scale, scaleAt)
+module Geometry exposing (transform, translate, scale, scaleAt)
 
 {-| module Geometry provides utilities for translating
 and scaling SVG shapes, as well as chaining such transformations
@@ -18,8 +16,9 @@ of commmands, e.g., [G.translate 60.0 120.0, G.scale 1.3 2.5, G.translate -60.0 
 
 -}
 
-import Svg exposing(..)
+import Svg exposing (..)
 import Svg.Attributes as S exposing (..)
+
 
 {-| transform commandList
 
@@ -33,9 +32,10 @@ G.transform commandList] []
 commandList = [G.translate 60.0 120.0, G.scale 1.3 2.5, G.translate -60.0 -130.0]
 
 -}
-
 transform : List String -> Svg.Attribute msg
-transform = S.transform << join
+transform =
+    S.transform << join
+
 
 {-| translate 22.0 -15.0
 
@@ -47,7 +47,8 @@ transform = S.transform << join
 
 -}
 translate : Float -> Float -> String
-translate x y =  "translate(" ++ (toString x) ++ ", " ++ (toString y) ++ ")"
+translate x y =
+    "translate(" ++ (toString x) ++ ", " ++ (toString y) ++ ")"
 
 
 {-| scale 1.1 0.9
@@ -59,7 +60,8 @@ translate x y =  "translate(" ++ (toString x) ++ ", " ++ (toString y) ++ ")"
       transform(G.scale 1.1 0.9)] []
 -}
 scale : Float -> Float -> String
-scale kx ky = "scale(" ++ (toString kx) ++ ", " ++ (toString ky) ++ ")"
+scale kx ky =
+    "scale(" ++ (toString kx) ++ ", " ++ (toString ky) ++ ")"
 
 
 {-| scaleAt 240 240 1.1 0.9
@@ -72,10 +74,17 @@ scale kx ky = "scale(" ++ (toString kx) ++ ", " ++ (toString ky) ++ ")"
 -}
 scaleAt : Float -> Float -> Float -> Float -> String
 scaleAt cx cy kx ky =
-  let commands = [translate cx cy, scale kx ky, translate -cx -cy]
-  in join commands
+    let
+        commands =
+            [ translate cx cy, scale kx ky, translate -cx -cy ]
+    in
+        join commands
+
 
 
 -- PRIVATE
 -- join ["a", "b", "c"] = "a, b, c"
-join = String.join ", "
+
+
+join =
+    String.join ", "

@@ -1,4 +1,4 @@
-module Iterate exposing(iterate, extend, orbit)
+module Iterate exposing (iterate, extend, orbit)
 
 {-| Module Iterate giveś an easy way to
 
@@ -7,6 +7,7 @@ module Iterate exposing(iterate, extend, orbit)
 (2) compute orbits, e.g., [a, f(a), f(f(a)), ...]
 
 -}
+
 
 {-| iterate n f a: Compute f^n(a)
 
@@ -18,11 +19,10 @@ module Iterate exposing(iterate, extend, orbit)
 -}
 iterate : (a -> a) -> Int -> a -> a
 iterate f n a =
-  if n == 0 then
-    a
-  else
-    iterate f (n-1) (f a)
-
+    if n == 0 then
+        a
+    else
+        iterate f (n - 1) (f a)
 
 
 {-| extend f list: Apply the function f to the head of the list and then cons it to the
@@ -42,12 +42,19 @@ iterate f n a =
 -}
 extend : (a -> a) -> List a -> List a
 extend f list =
-  let h = List.head list
-  in case h of
-    Nothing -> list
-    Just x -> f(x) :: list
+    let
+        h =
+            List.head list
+    in
+        case h of
+            Nothing ->
+                list
 
-{-|  orbit f n a = [a, f(a), f^2(n), .., f^n(a)]
+            Just x ->
+                f (x) :: list
+
+
+{-| orbit f n a = [a, f(a), f^2(n), .., f^n(a)]
 
 Example:
 > I.orbit (\x -> 2*x) 5 1
@@ -56,8 +63,11 @@ Example:
 -}
 orbit : (a -> a) -> Int -> a -> List a
 orbit f n a =
-  let
-    g = extend f
-    oo = iterate g n [a]
-  in
-   List.reverse oo
+    let
+        g =
+            extend f
+
+        oo =
+            iterate g n [ a ]
+    in
+        List.reverse oo

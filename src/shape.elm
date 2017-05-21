@@ -1,4 +1,4 @@
-module Shape exposing(AbstractCircle, move, transformCircle, makeCircle)
+module Shape exposing (AbstractCircle, move, transformCircle, makeCircle)
 
 {-| Module Shape defines the AbstractCircle type as record containing
 the coordinates of the center (cx, cy) and the radius.  Such
@@ -25,27 +25,37 @@ right and rescaled by the facctor k
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 
-{-| An Circle is the SVG representation of a circle. -}
-type alias Circle msg = List (Svg msg) -> Svg msg
+
+{-| An Circle is the SVG representation of a circle.
+-}
+type alias Circle msg =
+    List (Svg msg) -> Svg msg
+
 
 {-| An Abstract circle is defined by the coordinates of its
 center and by its radius.
 -}
-type alias AbstractCircle = { cx: Float, cy: Float, radius: Float }
+type alias AbstractCircle =
+    { cx : Float, cy : Float, radius : Float }
 
-{-| Translate and rescale -}
+
+{-| Translate and rescale
+-}
 transformCircle : Float -> Float -> Float -> AbstractCircle -> AbstractCircle
-transformCircle dx dy k circleData =
-   { circleData | cx =circleData.cx + dx, cy = circleData.cy + dy, radius = k*circleData.radius }
+transformCircle dx dy k abstractCircle =
+    { abstractCircle | cx = abstractCircle.cx + dx, cy = abstractCircle.cy + dy, radius = k * abstractCircle.radius }
+
 
 {-| move k: Rescale a circle by a factor of k and move it to the right
     so that it just touches the given circle.
 -}
 move : Float -> AbstractCircle -> AbstractCircle
 move k circleData =
-  transformCircle ((1 + k)*circleData.radius) 0.0 k circleData
+    transformCircle ((1 + k) * circleData.radius) 0.0 k circleData
 
-{-| makeCircle: convert an AbstractCircle into a Circle. -}
+
+{-| makeCircle: convert an AbstractCircle into a Circle.
+-}
 makeCircle : AbstractCircle -> Svg msg
 makeCircle circleData =
-  circle [ cx (toString circleData.cx), cy (toString circleData.cy), r (toString circleData.radius) ] []
+    circle [ cx (toString circleData.cx), cy (toString circleData.cy), r (toString circleData.radius) ] []
