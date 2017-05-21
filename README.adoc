@@ -20,9 +20,10 @@ code in the `examples` folder.
 Geometry:: provides utilities for translating and scaling SVG objects as
 well as chaining these transformations together.
 
-Shape:: provides (1) an AbstractCircles class that is easy to maniuplate, (2)
+Shape:: provides (1) an AbstractCircles class that is easy to manipulate, (2)
 a function to map AbstractCircles to SVG circles
 
 Iterate:: provides a utility for constructing the orbit of a map:
 `[a, f(a), f(f(a)), .. ]`.  In combination with various transforms, one
-can easily make drawings with repeated elements, as in `src/Composition2b.elm`
+can use `Iterate` to easily make drawings with repeated elements,
+as in `src/Composition2b.elm`
